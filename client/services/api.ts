@@ -290,7 +290,8 @@ class ApiService {
   private token: string | null = null;
 
   constructor() {
-    this.baseURL = import.meta.env.VITE_API_URL || "http://localhost:8080/api";
+    const envUrl = (import.meta as any).env?.VITE_API_URL as string | undefined;
+    this.baseURL = envUrl && envUrl.length ? envUrl : "/api";
     this.token = localStorage.getItem("accessToken");
   }
 

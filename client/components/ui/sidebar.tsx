@@ -177,6 +177,7 @@ const SidebarDesktopWrapper = styled.div<{
   state: "expanded" | "collapsed";
   collapsible: "offcanvas" | "icon" | "none";
   side: "left" | "right";
+  variant?: "sidebar" | "floating" | "inset";
 }>`
   position: relative;
   height: 100svh;

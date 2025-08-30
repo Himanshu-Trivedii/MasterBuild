@@ -295,7 +295,6 @@ export default function Index() {
       </BackgroundElements>
 
       <ContentContainer>
-        {/* TODO: FUSION_GENERATION_APP_PLACEHOLDER replace everything here with the actual app! */}
         <Card>
           <Title>
             <IconContainer>

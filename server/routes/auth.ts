@@ -37,8 +37,10 @@ authRouter.post("/login", (req, res) => {
 });
 
 authRouter.post("/refresh-token", (req, res) => {
-  const refreshToken = typeof req.body === "string" ? req.body : req.body?.refreshToken;
-  if (!refreshToken) return res.status(400).json({ message: "Missing refreshToken" });
+  const refreshToken =
+    typeof req.body === "string" ? req.body : req.body?.refreshToken;
+  if (!refreshToken)
+    return res.status(400).json({ message: "Missing refreshToken" });
   const token = `dev-token-${Date.now()}`;
   validTokens.add(token);
   return res.json({

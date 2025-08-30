@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
 import mediaDbRoutes from "./routes/media-db";
+import { authRouter } from "./routes/auth";
 
 export function createServer() {
   const app = express();
@@ -19,6 +20,9 @@ export function createServer() {
   });
 
   app.get("/api/demo", handleDemo);
+
+  // Auth routes (mock/dev)
+  app.use("/api/auth", authRouter);
 
   // Database-based media routes
   app.post("/api/media/upload", mediaDbRoutes.uploadSingleFile);

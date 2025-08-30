@@ -4,7 +4,6 @@ import com.constructpro.dto.request.LoginRequest;
 import com.constructpro.dto.request.SignupRequest;
 import com.constructpro.dto.response.JwtResponse;
 import com.constructpro.dto.response.MessageResponse;
-import com.constructpro.entity.CustomUserDetails;
 import com.constructpro.entity.User;
 import com.constructpro.repository.UserRepository;
 import com.constructpro.security.JwtUtils;
@@ -44,8 +43,7 @@ public class AuthController {
 			SecurityContextHolder.getContext().setAuthentication(authentication);
 			String jwt = jwtUtils.generateJwtToken(authentication);
 
-			CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
-			User user = userDetails.getUser();
+			User user = (User) authentication.getPrincipal();
 
 			// Update last login time properly
 			user.setLastLogin(LocalDateTime.now());

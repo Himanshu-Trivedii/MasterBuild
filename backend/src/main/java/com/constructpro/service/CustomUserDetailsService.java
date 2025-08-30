@@ -1,6 +1,5 @@
 package com.constructpro.service;
 
-import com.constructpro.entity.CustomUserDetails;
 import com.constructpro.entity.User;
 import com.constructpro.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +18,6 @@ public class CustomUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = userRepository.findByEmail(email)
 								  .orElseThrow(() -> new UsernameNotFoundException("User Not Found with email: " + email));
-        return new CustomUserDetails(user);
+        return user;
     }
 }
